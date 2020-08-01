@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- for mobile -->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type=text/css href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cyborg/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="static/css/main.css"> <!-- url_for: python function from module of same name; used to route to main.css from static folder in this case--> 
+        <link rel="stylesheet" type="text/css" href="static/css/webfontkit-20200731-124658/stylesheet.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="static/img/pokemon.svg" onerror="this.src='pokemon.png'" width="30" height="30" class="d-inline-block align-top" alt="">
+                    About
+                </a>
+            </div>
+        </div><!-- /.container-fluid -->
+        </nav>
+        <div style="background:black !important" class="jumbotron text-center align-items-center">
+            <div class="container">
+                <div class="form-group">
+                    <label>Anime Recommendation Engine</label>
+                        <form method="POST">
+                            <input name="text" type="text" class="form-control form-control-lg" placeholder="Enter Anime Here">
+                        </form>
+                </div>
+                {% if results %}
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">#Rank</th>
+                            <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                                <tr>
+                                    <th scope="row">{{ result[0] }}</th>
+                                    <td>{{ result[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                <form method="POST">
+                    <button name="clear" type="submit" class="btn btn-primary" formmethod="post" value="clear">Clear</button>
+                </form>
+            </div>
+        </div>
+        <div class="fixed-bottom">Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+</html>

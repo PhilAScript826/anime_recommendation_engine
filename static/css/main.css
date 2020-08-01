@@ -1,0 +1,11 @@
+label {
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    color: azure;
+    font-family: "pokemon_solidnormal";
+}
+
+a {
+    font-family: "pokemon_solidnormal";
+}
